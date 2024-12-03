@@ -746,30 +746,60 @@ function showReserveOverlay(selectedCity = null) {
 }
 
 .filter-container {
-    flex-shrink: 0;     /* Prevents the container from shrinking */
-    margin-bottom: 20px;  /* Adds space below the filter section */
-    overflow-x: auto;    /* Enables horizontal scrolling if content overflows */
+    flex-shrink: 0;
+    overflow-x: auto;    /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
+    scrollbar-width: thin;  /* Thin scrollbar for Firefox */
+    scrollbar-color: var(--primary-color) rgba(255, 215, 0, 0.1);  /* Scrollbar colors */
 }
 
 .filter-buttons {
-    display: flex;      /* Creates a flexible horizontal layout */
-    gap: 10px;          /* Adds consistent spacing between buttons */
-    padding-bottom: 10px;  /* Provides some bottom padding */
+    display: inline-flex;  /* Use inline-flex for horizontal layout */
+    gap: 10px;
+    padding-bottom: 10px;
+    min-width: 100%;
+    width: max-content;  /* Ensures container expands with content */
 }
 
 .filter-btn {
-    background: rgba(255, 215, 0, 0.1);  /* Soft golden background with transparency */
-    color: var(--text-light);  /* Light text color */
-    border: none;              /* Removes default button border */
-    padding: 10px 15px;        /* Gives buttons comfortable padding */
-    border-radius: 20px;       /* Rounds the button corners */
-    cursor: pointer;           /* Changes cursor to pointer on hover */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 215, 0, 0.2);  /* Added subtle border */
+    padding: 10px 15px;
+    border-radius: 25px;  /* More rounded corners */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;  /* Prevent text wrapping */
+    font-weight: 500;  /* Slightly bolder text */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* Subtle shadow */
+    transform: translateZ(0);  /* Hardware acceleration */
+    backface-visibility: hidden;  /* Smoother animations */
 }
 
-.filter-btn.active, .filter-btn:hover {
-    background: var(--primary-color);  /* Changes background on active/hover */
-    color: black;                      /* Changes text color for contrast */
+.filter-btn:hover {
+    background: var(--primary-color);
+    color: black;
+    transform: scale(1.05);  /* Slight scale on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: black;
+    font-weight: 700;  /* Bolder text when active */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Custom scrollbar for webkit browsers */
+.filter-container::-webkit-scrollbar {
+    height: 6px;  /* Horizontal scrollbar height */
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 10px;
+}
+
+.filter-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
 }
     
     .reserve-grid-container {

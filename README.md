@@ -747,89 +747,61 @@ function showReserveOverlay(selectedCity = null) {
 
 .filter-container {
     flex-shrink: 0;
-    overflow-x: auto;    /* Enable horizontal scrolling */
-    -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
-    scrollbar-width: thin;  /* Thin scrollbar for Firefox */
-    scrollbar-color: var(--primary-color) rgba(255, 215, 0, 0.1);  /* Scrollbar colors */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.filter-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Webkit browsers */
 }
 
 .filter-buttons {
-    display: inline-flex;  /* Use inline-flex for horizontal layout */
+    display: inline-flex; /* Use inline-flex for horizontal layout */
     gap: 10px;
     padding-bottom: 10px;
     min-width: 100%;
-    width: max-content;  /* Ensures container expands with content */
+    width: max-content; /* Ensures container expands with content */
 }
 
 .filter-btn {
     background: rgba(255, 215, 0, 0.1);
     color: var(--text-light);
-    border: 1px solid rgba(255, 215, 0, 0.2);  /* Added subtle border */
+    border: 1px solid rgba(255, 215, 0, 0.2); /* Added subtle border */
     padding: 10px 15px;
-    border-radius: 25px;  /* More rounded corners */
+    border-radius: 25px; /* More rounded corners */
     cursor: pointer;
     transition: all 0.3s ease;
-    white-space: nowrap;  /* Prevent text wrapping */
-    font-weight: 500;  /* Slightly bolder text */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* Subtle shadow */
-    transform: translateZ(0);  /* Hardware acceleration */
-    backface-visibility: hidden;  /* Smoother animations */
+    white-space: nowrap; /* Prevent text wrapping */
+    font-weight: 500; /* Slightly bolder text */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    transform: translateZ(0); /* Hardware acceleration */
+    backface-visibility: hidden; /* Smoother animations */
 }
 
 .filter-btn:hover {
     background: var(--primary-color);
     color: black;
-    transform: scale(1.05);  /* Slight scale on hover */
+    transform: scale(1.05); /* Slight scale on hover */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .filter-btn.active {
     background: var(--primary-color);
     color: black;
-    font-weight: 700;  /* Bolder text when active */
+    font-weight: 700; /* Bolder text when active */
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* Custom scrollbar for webkit browsers */
-.filter-container::-webkit-scrollbar {
-    height: 6px;  /* Horizontal scrollbar height */
-    background: rgba(255, 215, 0, 0.1);
-    border-radius: 10px;
+.reserve-grid-container {
+    flex-grow: 1;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    padding-bottom: 20px;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
 }
 
-.filter-container::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 10px;
-}
-    
-    .reserve-grid-container {
-        flex-grow: 1;
-        overflow-y: auto;
-        padding-bottom: 20px;
-    }
-
-.chat-input-container {
-    flex-shrink: 0;
-    margin-top: 20px; /* Increase the top margin to move it up */
-    padding-bottom: 10px; /* Add some bottom padding */
-}
-
-.bottom-nav {
-    flex-shrink: 0;
-    margin-top: auto; /* Move the bottom navigation to the bottom */
-}
 .reserve-grid-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.reserve-grid-container::-webkit-scrollbar-track {
-    background: rgba(255, 215, 0, 0.1);
-    border-radius: 10px;
-}
-
-.reserve-grid-container::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 10px;
+    display: none; /* Hide scrollbar in Webkit browsers */
 }
 
 .reserve-grid {
@@ -915,7 +887,7 @@ function showReserveOverlay(selectedCity = null) {
     grid-template-columns: 1fr;
   }
 }
-    `;
+`;
     document.head.appendChild(style);
 }
 

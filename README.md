@@ -746,33 +746,32 @@ function showReserveOverlay(selectedCity = null) {
 }
 
 .filter-container {
-    flex-shrink: 0;
-    margin-bottom: 20px;
-    overflow-x: auto;
+    flex-shrink: 0;     /* Prevents the container from shrinking */
+    margin-bottom: 20px;  /* Adds space below the filter section */
+    overflow-x: auto;    /* Enables horizontal scrolling if content overflows */
 }
 
 .filter-buttons {
-  display: flex;
-  gap: 10px;
-  padding-bottom: 10px;
+    display: flex;      /* Creates a flexible horizontal layout */
+    gap: 10px;          /* Adds consistent spacing between buttons */
+    padding-bottom: 10px;  /* Provides some bottom padding */
 }
 
 .filter-btn {
-  background: rgba(255, 215, 0, 0.1);
-  color: var(--text-light);
-  border: none;
-  padding: 10px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    background: rgba(255, 215, 0, 0.1);  /* Soft golden background with transparency */
+    color: var(--text-light);  /* Light text color */
+    border: none;              /* Removes default button border */
+    padding: 10px 15px;        /* Gives buttons comfortable padding */
+    border-radius: 20px;       /* Rounds the button corners */
+    cursor: pointer;           /* Changes cursor to pointer on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
-.filter-btn.active,
-.filter-btn:hover {
-  background: var(--primary-color);
-  color: black;
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary-color);  /* Changes background on active/hover */
+    color: black;                      /* Changes text color for contrast */
 }
-
+    
     .reserve-grid-container {
         flex-grow: 1;
         overflow-y: auto;

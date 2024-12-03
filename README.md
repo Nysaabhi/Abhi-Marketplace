@@ -610,7 +610,7 @@ function showReserveOverlay(selectedCity = null) {
             </div>
 
             <!-- New Chat Input Container -->
-            <div class="chat-input-container">
+            <div class="chat-input-container" style="margin-top: 0; padding-bottom: 80px;">
                 <input type="text" id="chatInput" placeholder="Search for services or ask a question..." />
                 <div class="input-actions">
                     <button class="send-message" id="sendButton">
